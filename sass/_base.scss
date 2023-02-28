@@ -1,0 +1,29 @@
+// variables
+
+$color-grey-light-1: #ebebeb;
+$color-grey-light-2: #d4d4d4;
+$color-grey-dark: #585858;
+$color-grey-dark-2: #4d4d4d;
+
+$color-green-dark: #2e701d;
+$color-green-light: #83c967;
+
+// root
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;  // 10px/16px=62.5%  1rem = 10px
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+}

@@ -1,0 +1,155 @@
+.navbar {
+    background: $color-grey-light-1;
+    color: $color-grey-dark;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 1.9rem;
+    box-shadow: 0 1px 10px rgba(#000, .3);
+
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+
+    @include responsive(big-desktop) {
+        font-size: 2.4rem;
+    }
+
+    //logo
+
+    &__logo-box {
+        margin-left: 1.8rem;
+        width: 20.5rem;
+
+    }
+
+
+    //brand name
+
+    &__brand-name {
+        font-weight: 300;
+    }
+
+
+    //list
+
+    .navbar__links {
+        align-self: stretch;
+    }
+    
+    &__navigation-list {
+        display: flex;
+        height: 100%;
+    }
+
+    &__navigation-link {
+        list-style: none;
+        padding: 0;
+
+        a {
+            display: block;
+            text-decoration: none;
+            color: $color-grey-dark;
+            padding: 1.5rem;
+            height: 100%;
+            
+            transition: all .2s;
+
+
+            &:hover {
+                background-color: $color-grey-light-2;
+            }
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+
+}
+
+//toggle button
+
+.toggle-button {
+    position: absolute;
+    top: 1.7rem;
+    right: 1.5rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 3rem;
+    height: 2.1rem;
+    cursor: pointer;
+
+    
+}
+
+.toggle-bar {
+    width: 100%;
+    height: 3px;
+    background-color: $color-grey-dark;
+    border-radius: 5rem;
+    transition: all .5s;
+}
+
+
+
+@media (max-width: 600px) {
+    .toggle-button {
+        display: flex;
+    }
+
+    .navbar__links {
+        display: none;
+        width: 100%;     
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+
+        &__navigation-list {
+            flex-direction: column;
+            width: 100%;
+        }
+
+        &__navigation-link {
+            text-align: center;
+
+            a {
+                width: 100%;
+                padding: .7rem;
+            }
+        }
+
+        &__brand-name {
+            padding: .9rem;
+        }
+    }
+    
+    .navbar__links.active {
+        display: flex;
+    }
+ 
+}
+
+// JS animation for bars
+
+.active-bars .toggle-bar--1{
+    position: absolute;
+    top: 1rem;
+    transform: rotate(135deg);
+}
+
+.active-bars .toggle-bar--2{
+    opacity: 0;
+}
+
+.active-bars .toggle-bar--3{
+    position: absolute;
+    top: 1rem;
+    transform: rotate(-135deg);
+}

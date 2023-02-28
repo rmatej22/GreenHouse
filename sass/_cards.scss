@@ -1,0 +1,267 @@
+.cards {
+    background-color: $color-grey-light-1;
+
+    padding: 7rem 5rem;
+
+    display: grid;
+    grid-template-rows: max-content 1fr max-content;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    grid-gap: 8.5rem;
+
+    @include responsive(tab-port) {
+        padding: 7rem 2rem;
+    }
+}
+
+.cards-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    grid-gap: 5rem;
+
+    width: 80%;
+    
+    @include responsive(tab-land) {
+        width: 100%;
+    }
+
+    @include responsive(tab-port) {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 60rem);
+        grid-gap: 8rem;
+
+        width: 60%;
+    }
+
+    @include responsive(phone) {
+        width: 100%;
+    }
+
+    &__card {
+        perspective: 150rem;
+        -moz-perspective: 150rem;
+
+        position: relative;
+        height: 40rem;
+
+        @include responsive(big-desktop) {
+            height: 65rem;
+        }
+
+        @include responsive(tab-port) {
+            height: auto;
+        }
+        
+
+        .card__side {
+            height: 40rem;
+            width: 100%;
+            transition: all .8s ease;
+            backface-visibility: hidden;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            border: none;
+            border-radius: 3px;
+            box-shadow: 0 10px 30px rgba(#000, .15);
+            overflow: hidden;
+
+            @include responsive(big-desktop) {
+                height: 100%;
+            }
+
+                      
+            &--front {
+                background-color: #fff;
+
+                @include responsive(tab-port) {
+                    position: static;
+
+                    margin-bottom: -20rem;
+                    height: 100%;
+
+                    transition: none;
+                }
+            }
+
+            &--back {
+                background-image: linear-gradient(to right bottom, $color-green-light, $color-green-dark);
+                transform: rotateY(180deg);
+
+                @include responsive(tab-port) {
+                    transform: rotateY(0);
+                    height: 20rem;
+                    bottom: 0;
+                    position: static;
+                    transition: none;
+                    border-top-left-radius: 0;
+                    border-top-right-radius: 0;
+
+                    clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 100%);
+                    -webkit-clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 100%);  
+                }
+            }
+
+        }
+
+        &:hover .card__side--front{
+            transform: rotateY(-180deg);
+
+            @include responsive(tab-port) {
+                transform: rotateY(0);
+
+
+            }
+        }
+
+        &:hover .card__side--back{
+            transform: rotateY(0deg);
+        }
+    }
+}
+
+
+// FRONT SIDE STYLE
+
+.card__picture {
+    background-size: cover;
+    height: 20rem;
+    background-blend-mode: soft-light;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+
+    @include responsive(big-desktop) {
+        height: 30rem;
+    }
+
+    &--1 {
+        background-image: linear-gradient(to right bottom, $color-green-light, $color-green-dark),
+        url(../imgs/card-photo-1.jpg);
+    }
+    
+    &--2 {
+        background-image: linear-gradient(to right bottom, $color-green-light, $color-green-dark),
+        url(../imgs/card-photo-2.jpg);
+    }
+    
+    &--3 {
+        background-image: linear-gradient(to right bottom, $color-green-light, $color-green-dark),
+        url(../imgs/card-photo-3.jpg);
+    }
+}
+
+.card__heading {
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: 200;
+    text-transform: uppercase;
+    text-align: right;
+    width: 80%;
+    position: absolute;
+    top: 16rem;
+    right: 1.5rem;
+
+    @include responsive(big-desktop) {
+        font-size: 3.5rem;
+        top: 23rem;
+    }
+}
+
+.card__heading--span {
+    background-image: linear-gradient(to right bottom, rgba($color-green-light, .85), rgba($color-green-dark, .9));
+    padding: .2rem 1rem;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+}
+
+.card__details {
+    padding: 3rem;
+
+    ul {
+        list-style: none;
+        margin: 0 auto;
+
+        li {
+            text-align: center;
+            font-size: 1.5rem;
+            color: $color-grey-dark;
+            padding: 1rem;
+
+            &:not(:last-child) {
+                border-bottom: 1px solid $color-grey-light-2;
+            }
+
+            @include responsive(big-desktop) {
+                font-size: 2.5rem;
+                padding: 2rem;
+            }
+        }
+    }
+}
+
+// BACK SIDE STYLE
+.card__side--back {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.card__offer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    height: 60%;
+
+    @include responsive(big-desktop) {
+        height: 40%;
+    }
+}
+
+.card__price {
+    color: #fff;
+    font-weight: 200;
+    text-align: center;
+    margin-bottom: 3rem;
+
+    @include responsive(tab-port) {
+        margin-bottom: 1rem;
+    }
+
+
+    &--text {
+        font-size: 2rem;
+        margin-bottom: .5rem;
+
+        @include responsive(tab-port) {
+            font-size: 1.5rem;
+            margin-bottom: .2rem;
+        }
+        
+        @include responsive(big-desktop) {
+            font-size: 2.5rem;
+            margin-bottom: .2rem;
+        }
+    }
+
+    &--value {
+        font-size: 5.5rem;
+
+        @include responsive(tab-port) {
+            font-size: 4rem;
+        }
+
+        @include responsive(big-desktop) {
+            font-size: 8.5rem;
+            margin-bottom: .2rem;
+        }
+    }
+
+
+}
+
+

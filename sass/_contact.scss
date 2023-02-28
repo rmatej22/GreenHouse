@@ -1,0 +1,79 @@
+.contact {
+    background-color: $color-grey-dark-2;
+    color: $color-grey-light-1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem;
+    border-top: 1rem solid $color-green-light;
+    height: 70vh;
+
+    &__heading {
+        font-size: 5rem;
+        font-weight: 500;
+        letter-spacing: 2px;
+        margin-bottom: 5rem;
+        text-align: center;
+
+        
+        @include responsive(big-desktop){
+            font-size: 7rem;
+        }
+
+        @include responsive(tab-port){
+            margin-bottom: 3rem;
+        }
+
+        @include responsive(phone){
+            font-size: 3.6rem;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        
+        text-align: center;
+        
+
+        a {
+            font-size: 2.6rem;
+            transition: all .3s;
+            text-decoration: none;
+            color: $color-grey-light-1;
+            margin: 3rem;
+            
+
+            &:hover {
+                transform: translateY(-.5rem) scale(1.1);
+            }
+
+            &:focus {
+                outline: none;
+            }
+
+            @include responsive(big-desktop){
+                margin: 4rem;
+                font-size: 3rem;
+            }
+
+            @include responsive(tab-port){
+                margin: 1.4rem;
+            }
+            
+            @include responsive(phone){
+                margin: 1.2rem;
+                font-size: 2.2rem;
+            }
+            
+        }
+
+    }
+
+}

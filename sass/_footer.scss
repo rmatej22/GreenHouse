@@ -1,0 +1,52 @@
+.footer {
+    background-color: $color-grey-dark-2;
+    border-top: .3rem solid $color-green-light;
+    height: auto;
+    color: #fff;
+    padding: 3rem;
+    text-align: center;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    @include responsive(phone){
+        flex-direction: column;
+        padding: 4rem;
+    }
+
+    &__copy-paragraph {
+        font-size: 1.6rem;
+        margin: .5rem;
+
+        @include responsive(phone){
+            margin: 1rem;
+        }
+        
+        @include responsive(tab-port){
+            font-size: 1.3rem;
+        }
+        
+        @include responsive(big-desktop){
+            font-size: 1.8rem;
+        }
+    }
+
+    &__disclaimer-box {
+        font-size: 1.4rem;
+        margin: .5rem;
+
+        @include responsive(phone){
+            margin: 1rem;
+        }
+        
+        @include responsive(tab-port){
+            font-size: 1.1rem;
+        }
+        
+        @include responsive(big-desktop){
+            font-size: 1.8rem;
+        }
+    }
+}
